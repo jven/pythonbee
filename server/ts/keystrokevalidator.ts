@@ -5,12 +5,12 @@ export class KeystrokeValidator {
 
   constructor() {
     this.validValues_ = {};
-    for (var key in Keystroke) {
-      this.validValues_[Keystroke[key]] = true;
-    }
+    Keystroke.forEach(k => {
+      this.validValues_[k] = true;
+    });
   }
 
-  isValidKeystroke(value: number) {
+  isValidKeystroke(value: string) {
     return !!this.validValues_[value];
   }
 }
