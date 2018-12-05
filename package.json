@@ -5,6 +5,7 @@
   "main": "server.ts",
   "dependencies": {
     "@types/node": "^10.12.12",
+    "@types/socket.io-client": "^1.4.32",
     "express": "^4.16.4",
     "http": "^0.0.0",
     "path": "^0.12.7",
@@ -12,7 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server/main.ts",
+    "start": "tsc server/ts/* --outDir server/js && tsc client/ts/* --outDir client/js && node server/js/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
