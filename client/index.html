@@ -7,6 +7,12 @@
   	  body {
   	  	background-color: #ddd;
   	  }
+      #code {
+        border: solid 1px black;
+        font-family: monospace;
+        padding: 5px;
+        white-space: pre;
+      }
   	  #lastKeystroke {
   	  	font-family: monospace;
   	  	font-size: 200px;
@@ -14,9 +20,19 @@
   	  	margin: 200px auto;
   	  	width: 500px;
   	  }
+      #clearLine {
+        background-color: #ffc;
+        padding: 5px;
+        width: 200px;
+      }
+      #clearLine:hover {
+        background-color: white;
+      }
   	</style>
   </head>
   <body>
+    <div id="code"></div>
   	<div id="lastKeystroke"></div>
+    <div id="clearLine">Clear line</div>
   </body>
 </html>

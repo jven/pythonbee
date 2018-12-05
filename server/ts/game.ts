@@ -5,14 +5,17 @@ export class Game {
   private keystrokeToCodeConverter_: KeystrokeToCodeConverter;
   private keystrokeValidator_: KeystrokeValidator;
   private keystrokes_: string[];
+  private sockets_: any[];
 
   constructor() {
     this.keystrokeValidator_ = new KeystrokeValidator();
     this.keystrokeToCodeConverter_ = new KeystrokeToCodeConverter();
     this.keystrokes_ = [];
+    this.sockets_ = [];
   }
 
   addPlayerSocket(socket) {
+    this.sockets_.push(socket);
     socket.on('keystroke', msg => this.handleKeystrokeMessage_(msg));
   }
 
@@ -27,8 +30,13 @@ export class Game {
       console.log('Invalid keystroke value: ' + msg.keystroke);
       return;
     }
+
     this.keystrokes_.push(msg.keystroke);
     console.log(this.keystrokes_);
+
+    this.sockets_.forEach(socket => {
+      socket.emit('code', this.getCode());
+    });
   }
 
   getCode(): string {

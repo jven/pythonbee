@@ -88,5 +88,6 @@ export const Keystroke = [
   ' ',
   'Enter',
   'Backspace',
+  'ClearLine',
   'Tab'
 ];

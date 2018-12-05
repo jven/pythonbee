@@ -3,6 +3,9 @@ var socket = io();
 function main() {
   document.onkeydown = onKeyDown;
   document.onkeypress = onKeyPress;
+  document.getElementById('clearLine').onclick = onClearLine;
+
+  socket.on('code', code => showCode_(code));
 }
 
 function onKeyDown(e) {
@@ -10,19 +13,34 @@ function onKeyDown(e) {
       && e.key != "Backspace") {
     return;
   }
-  const lastKeystrokeEl = document.getElementById('lastKeystroke');
-  lastKeystrokeEl.innerHTML = e.key;
+  showKeystroke_(e.key);
   socket.emit('keystroke', {
     keystroke: e.key
   });
 }
 
 function onKeyPress(e) {
-	const lastKeystrokeEl = document.getElementById('lastKeystroke');
-  lastKeystrokeEl.innerHTML = e.key;
+	showKeystroke_(e.key);
   socket.emit('keystroke', {
   	keystroke: e.key
   });
+}
+
+function onClearLine() {
+  showKeystroke_('ClearLine');
+  socket.emit('keystroke', {
+    keystroke: 'ClearLine'
+  });
+}
+
+function showKeystroke_(keystroke) {
+  const lastKeystrokeEl = document.getElementById('lastKeystroke');
+  lastKeystrokeEl.innerText = keystroke;
+}
+
+function showCode_(code) {
+  const codeEl = document.getElementById('code');
+  codeEl.innerText = code;
 }
 
 window.onload = main;
