@@ -1,11 +1,14 @@
+import { KeystrokeToCodeConverter } from './keystroketocodeconverter';
 import { KeystrokeValidator } from './keystrokevalidator';
 
 export class Game {
+  private keystrokeToCodeConverter_: KeystrokeToCodeConverter;
   private keystrokeValidator_: KeystrokeValidator;
-  private keystrokes_: number[];
+  private keystrokes_: string[];
 
   constructor() {
     this.keystrokeValidator_ = new KeystrokeValidator();
+    this.keystrokeToCodeConverter_ = new KeystrokeToCodeConverter();
     this.keystrokes_ = [];
   }
 
@@ -26,6 +29,10 @@ export class Game {
     }
     this.keystrokes_.push(msg.keystroke);
     console.log(this.keystrokes_);
+  }
+
+  getCode(): string {
+    return this.keystrokeToCodeConverter_.convert(this.keystrokes_);
   }
 }
 

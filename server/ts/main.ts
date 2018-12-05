@@ -9,7 +9,9 @@ import { Game } from './game';
 
 const game : Game = new Game();
 
-app.use(express.static(path.join(__dirname, '../../client')))
+app
+  .use(express.static(path.join(__dirname, '../../client')))
+  .get('/code', (req, res) => res.send(game.getCode()));
 
 webSocket.on('connection', socket => game.addPlayerSocket(socket));
 
