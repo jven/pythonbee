@@ -12,10 +12,8 @@ export class KeystrokeToCodeConverter {
             lines.pop();
           }
         } else {
-          console.log(lines[lines.length - 1]);
           lines[lines.length - 1] = lines[lines.length - 1].slice(
               0, lines[lines.length - 1].length - 1);
-          console.log(lines[lines.length - 1]);
         }
       } else if (keystroke == "ClearLine") {
         lines[lines.length - 1] = "";
