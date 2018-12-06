@@ -22,4 +22,3 @@
 * Associate with each keystroke who made it and how long it took
 * Timer (on the server)!
 * Add TS linter
-* Prevent old clients from connecting to new server

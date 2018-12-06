@@ -1,11 +1,11 @@
 var socket = null;
 
 function main() {
-  socket = io();
   document.onkeydown = onKeyDown;
   document.onkeypress = onKeyPress;
   document.getElementById('clearLine').onclick = onClearLine;
 
+  socket = io('' + window.location, {reconnection: false});
   socket.on('start', msg => onStart_(msg));
   socket.on('update', msg => onUpdate_(msg));
   socket.on('turn', msg => onTurn_(msg));
