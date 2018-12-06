@@ -6,6 +6,7 @@ function main() {
   document.getElementById('clearLine').onclick = onClearLine;
 
   socket.on('code', code => showCode_(code));
+  socket.on('keystroke', code => showKeystroke_(code));
 }
 
 function onKeyDown(e) {
@@ -13,21 +14,18 @@ function onKeyDown(e) {
       && e.key != "Backspace") {
     return;
   }
-  showKeystroke_(e.key);
   socket.emit('keystroke', {
     keystroke: e.key
   });
 }
 
 function onKeyPress(e) {
-	showKeystroke_(e.key);
   socket.emit('keystroke', {
   	keystroke: e.key
   });
 }
 
 function onClearLine() {
-  showKeystroke_('ClearLine');
   socket.emit('keystroke', {
     keystroke: 'ClearLine'
   });
@@ -35,6 +33,9 @@ function onClearLine() {
 
 function showKeystroke_(keystroke) {
   const lastKeystrokeEl = document.getElementById('lastKeystroke');
+  if (keystroke == ' ') {
+    keystroke = 'Space';
+  }
   lastKeystrokeEl.innerText = keystroke;
 }
 

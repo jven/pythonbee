@@ -17,6 +17,7 @@ export class Game {
   addPlayerSocket(socket) {
     this.sockets_.push(socket);
     socket.on('keystroke', msg => this.handleKeystrokeMessage_(msg));
+    socket.emit('code', this.getCode());
   }
 
   handleKeystrokeMessage_(msg) {
@@ -35,6 +36,7 @@ export class Game {
     console.log(this.keystrokes_);
 
     this.sockets_.forEach(socket => {
+      socket.emit('keystroke', msg.keystroke);
       socket.emit('code', this.getCode());
     });
   }
