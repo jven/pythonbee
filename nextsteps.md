@@ -14,7 +14,6 @@
 ## TODO
 * Finished game
 * Lobby, waiting for game
-* Alternating turns within a game (pass priority between clients)
 * Spectator view? See the whole code base
 * Deploy to heroku
 * Design a way to have a set of problems and test cases
@@ -22,3 +21,5 @@
 * Allow for rejoining
 * Associate with each keystroke who made it and how long it took
 * Timer (on the server)!
+* Add TS linter
+* Prevent old clients from connecting to new server
