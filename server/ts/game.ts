@@ -49,6 +49,7 @@ export class Game {
         playerNames));
 
     this.sendUpdate_();
+    this.players_[this.turnPlayerIndex_].sendTurn();
   }
 
   sendUpdate_() {
@@ -80,6 +81,7 @@ export class Game {
 
     this.turnPlayerIndex_ = (this.turnPlayerIndex_ + 1) % this.players_.length;
     this.sendUpdate_();
+    this.players_[this.turnPlayerIndex_].sendTurn();
   }
 
   getCode(): string {

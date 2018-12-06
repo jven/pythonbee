@@ -20,6 +20,8 @@ export class Player {
   }
 
   sendTurn() {
-    this.socket_.emit('turn', {});
+    this.socket_.emit('turn', {
+      message: "Your turn!"
+    });
   }
 }
