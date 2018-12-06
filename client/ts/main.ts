@@ -5,8 +5,9 @@ function main() {
   document.onkeypress = onKeyPress;
   document.getElementById('clearLine').onclick = onClearLine;
 
-  socket.on('code', code => showCode_(code));
-  socket.on('keystroke', code => showKeystroke_(code));
+  socket.on('start', msg => onStart_(msg));
+  // socket.on('update', msg => onUpdate_(msg));
+  // socket.on('turn', msg => onTurn_(msg));
 }
 
 function onKeyDown(e) {
@@ -31,17 +32,22 @@ function onClearLine() {
   });
 }
 
-function showKeystroke_(keystroke) {
-  const lastKeystrokeEl = document.getElementById('lastKeystroke');
-  if (keystroke == ' ') {
-    keystroke = 'Space';
-  }
-  lastKeystrokeEl.innerText = keystroke;
+function onStart_(msg) {
+  document.getElementById('waiting').classList.add('hidden');
+  document.getElementById('game').classList.remove('hidden');
 }
 
-function showCode_(code) {
-  const codeEl = document.getElementById('code');
-  codeEl.innerText = code;
-}
+// function showKeystroke_(keystroke) {
+//   const lastKeystrokeEl = document.getElementById('lastKeystroke');
+//   if (keystroke == ' ') {
+//     keystroke = 'Space';
+//   }
+//   lastKeystrokeEl.innerText = keystroke;
+// }
+
+// function showCode_(code) {
+//   const codeEl = document.getElementById('code');
+//   codeEl.innerText = code;
+// }
 
 window.onload = main;

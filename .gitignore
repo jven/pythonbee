@@ -2,3 +2,4 @@ node_modules/*
 client/js/*
 server/js/*
 .DS_Store
+*.out*

@@ -31,11 +31,17 @@
       #clearLine:hover {
         background-color: white;
       }
+      .hidden {
+        display: none;
+      }
   	</style>
   </head>
   <body>
-    <div id="code"></div>
-  	<div id="lastKeystroke"></div>
-    <div id="clearLine">Clear line</div>
+    <div id="waiting">Waiting for game...</div>
+    <div id="game" class="hidden">
+      <div id="code"></div>
+    	<div id="lastKeystroke"></div>
+      <div id="clearLine">Clear line</div>
+    </div>
   </body>
 </html>
