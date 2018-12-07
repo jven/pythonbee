@@ -22,3 +22,4 @@
 * Associate with each keystroke who made it and how long it took
 * Timer (on the server)!
 * Add TS linter
+* Modify docker-python-sandbox-mac library to expose ports on 127.0.0.1 instead of 0.0.0.0.
