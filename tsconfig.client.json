@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"outDir": "build/client",
+		"sourceMap": true,
+		"resolveJsonModule": true
+	},
+	"include": ["client/ts/main.ts"],
+	"exclude": ["node_modules"]
+}

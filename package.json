@@ -16,7 +16,10 @@
   "devDependencies": {},
   "scripts": {
     "start": "tsc server/ts/* --outDir server/js --lib es6,dom && tsc client/ts/* --outDir client/js --lib es6,dom && node server/js/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc-server": "tsc --project tsconfig.server.json",
+    "tsc-client": "tsc --project tsconfig.client.json",
+    "rm-build": "rm -rf build/server/** && rm -rf build/client/**"
   },
   "author": "",
   "license": "ISC"
