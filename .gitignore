@@ -10,8 +10,5 @@ build/
 # editor-specific
 .vscode
 
-# Parcel-bundler
-.cache
-
 # Organization & Notes dir (alan)
 .org
