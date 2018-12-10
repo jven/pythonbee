@@ -3,3 +3,12 @@ client/js/*
 server/js/*
 .DS_Store
 *.out*
+
+# Build
+build/
+
+# editor-specific
+.vscode
+
+# Organization & Notes dir (alan)
+.org

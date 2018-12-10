@@ -12,7 +12,7 @@ const game : Game = new Game();
 const codeExecutor = new CodeExecutor();
 
 app
-  .use(express.static(path.join(__dirname, '../../client')))
+  .use(express.static(path.join(__dirname, '../client')))
   .get('/code', (req, res) => res.send(game.getCode()))
   .get('/test', (req, res) => {
     const code = 'print (3+3)';
