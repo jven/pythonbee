@@ -1,8 +1,6 @@
 var socket = null;
 
 function main() {
-  debugger;
-  console.log('hi')
   document.onkeydown = onKeyDown;
   document.onkeypress = onKeyPress;
   document.getElementById('clearLine').onclick = onClearLine;
