@@ -15,10 +15,44 @@ app
   .use(express.static(path.join(__dirname, '../../client')))
   .get('/code', (req, res) => res.send(game.getCode()))
   .get('/test', (req, res) => {
-    const code = 'print (3+3)';
-    codeExecutor.runCode(code)
-        .then(result => {
-          res.send(result['combined']);
+    const code = 'def f(a,b):\n  return a+b';
+    const lang = 'python';
+    const timeoutMs = 2000;
+    const testCases = [
+      {
+        params: [
+          {type: "int", value: "3"},
+          {type: "int", value: "2"}
+        ],
+        expected: {
+          type: "int",
+          value: "5"
+        }
+      },
+      {
+        params: [
+          {type: "int", value: "3"},
+          {type: "int", value: "6"}
+        ],
+        expected: {
+          type: "int",
+          value: "9"
+        }
+      },
+      {
+        params: [
+          {type: "int", value: "12"},
+          {type: "int", value: "14"}
+        ],
+        expected: {
+          type: "int",
+          value: "26"
+        }
+      }
+    ];
+    codeExecutor.runCode(code, lang, timeoutMs, testCases)
+        .then(results => {
+          res.send(results);
         })
         .catch(err => res.send('Error: ' + err));
   })
