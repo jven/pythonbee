@@ -16,9 +16,12 @@
   "devDependencies": {},
   "scripts": {
     "start": "tsc server/ts/* --outDir server/js --lib es6,dom && tsc client/ts/* --outDir client/js --lib es6,dom && node server/js/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc-server": "tsc --project tsconfig.server.json",
-    "tsc-client": "tsc --project tsconfig.client.json",
+	 "test": "echo \"Error: no test specified\" && exit 1",
+	 "dev": "npm run tsc && npm run cp-html && node build/server/server.js",
+	 "cp-html": "cp src/client/**.html build/client",
+	 "tsc": "npm run tsc-client && npm run tsc-server",
+    "tsc-server": "rm -rf build/server/** && tsc --project tsconfig.server.json",
+    "tsc-client": "rm -rf build/client/** && tsc --project tsconfig.client.json",
     "rm-build": "rm -rf build/server/** && rm -rf build/client/**"
   },
   "author": "",

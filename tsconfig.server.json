@@ -1,11 +1,13 @@
 {
+	"extends": "./tsconfig.json",
 	"compilerOptions": {
 		"target": "es6",
 		"module": "commonjs",
-		"outDir": "build/server",
+		"outDir": "build/server/",
+		// "inlineSourceMap": true,
+		"inlineSources": true,
 		"sourceMap": true,
-		"resolveJsonModule": true
 	},
-	"include": ["server/ts/main.ts"],
+	"include": ["src/server"],
 	"exclude": ["node_modules"]
 }
