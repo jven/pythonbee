@@ -15,7 +15,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "tsc server/ts/* --outDir server/js --lib es6,dom && tsc client/ts/* --outDir client/js --lib es6,dom && node server/js/main.js",
+   "start": "npm run tsc && npm run cp-html && node build/server/server.js",
 	 "test": "echo \"Error: no test specified\" && exit 1",
 	 "dev": "npm run tsc && npm run cp-html && node build/server/server.js",
 	 "cp-html": "cp src/client/**.html build/client",
